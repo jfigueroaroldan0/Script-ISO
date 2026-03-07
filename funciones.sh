@@ -50,6 +50,8 @@ function f_bin_instalado {
  fi
 }
 
+# Comprueba que se han introducido argumentos al script
+
 function f_parametros {
 
   if [ $# -eq 0 ]; then
@@ -63,4 +65,8 @@ fi
  echo "Primer argumento: $1"
 }
 
+# Devuelve cero en caso de estar instalado el paquete pasado como argumento, uno en caso contrario
 
+function f_paquete_instalado {
+    dpkg -l "$1" &>/dev/null
+}
