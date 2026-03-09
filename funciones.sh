@@ -5,13 +5,18 @@
 # Descripción: fichero de diversas funciones
 # Fecha creación: 07-03-2026
 
-# Indica el uid del usuario actual de la shell
+# Indica el uid del usuario actual de la shell.
+# Entrada: no necesita
+# Salida: muestra el uid del usuario que ejecuta el script
 
 function f_uid {
 
   uid=$(id -u)
   echo "El UID del usuario $user es $uid "
+  return 0
 }
+
+f_uid
 
 # Para comprobar si hay conectividad con el exterior
 
@@ -75,6 +80,6 @@ function f_paquete_instalado {
 # Indica los 10 comandos más utilizados en la shell
 
 function f_ranking_comandos {
-   
+
   history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10
 }
