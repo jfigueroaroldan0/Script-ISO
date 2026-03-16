@@ -84,6 +84,9 @@ f_paquete_instalado {
 }
 
 # Indica los 10 comandos más utilizados en la shell
+# Descripción: Muestra los comandos más utilizados
+# Entrada: no admite
+# Salida: top 10 comandos que más se han utilizado
 
 f_ranking_comandos() {
 
