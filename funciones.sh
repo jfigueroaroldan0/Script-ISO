@@ -19,8 +19,6 @@ negrita='\033[1m'
 # Entrada: no necesita
 # Salida: muestra el uid del usuario que ejecuta el script
 
-function f_uid {
-
 f_uid() {
 
 uid=$(id -u)
@@ -36,7 +34,7 @@ uid=$(id -u)
 
 # Para comprobar si hay conectividad con el exterior
 
-function f_hay_conexion {
+f_hay_conexion() {
 
   if ping -c 1 -q 8.8.8.8 &>/dev/null;
 	return 0
@@ -48,7 +46,7 @@ function f_hay_conexion {
 
 # Comprobar si estamos ejecutando el script como root
 
-function f_eres_root {
+f_eres_root() {
 
   if [ id -u -eq 0 ] then
 	return 0
@@ -60,7 +58,7 @@ function f_eres_root {
 
 # Función que recibe un argumento y dice si el binario está instalado
 
-function f_bin_instalado {
+f_bin_instalado() {
 
   if command -v "$1" &>/dev/null; then
     return 0
@@ -73,7 +71,7 @@ function f_bin_instalado {
 
 # Comprueba que se han introducido argumentos al script
 
-function f_parametros {
+f_parametros() {
 
   if [ $# -eq 0 ]; then
   echo "Error: se requiere al menos un argumento"
@@ -88,7 +86,7 @@ fi
 
 # Devuelve cero en caso de estar instalado el paquete pasado como argumento, uno en caso contrario
 
-f_paquete_instalado {
+f_paquete_instalado() {
     
   dpkg -l "$1" &>/dev/null
 }
