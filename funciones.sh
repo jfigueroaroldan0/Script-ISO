@@ -78,14 +78,15 @@ fi
 
 # Devuelve cero en caso de estar instalado el paquete pasado como argumento, uno en caso contrario
 
-function f_paquete_instalado {
+f_paquete_instalado {
     
   dpkg -l "$1" &>/dev/null
 }
 
 # Indica los 10 comandos más utilizados en la shell
 
-function f_ranking_comandos {
+f_ranking_comandos() {
 
-  history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10
+cat ~/.bash_history | sort | uniq -c | sort -rn | head -10
+
 }
