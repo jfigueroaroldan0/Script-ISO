@@ -11,12 +11,18 @@
 
 function f_uid {
 
-  uid=$(id -u)
-  echo "El UID del usuario $user es $uid "
-  return 0
-}
+f_uid() {
 
-f_uid
+uid=$(id -u)
+
+  if [ "$uid" -eq 0 ]; then
+    return $uid
+
+  else
+    echo "No puede continuar la ejecución del script porque no eres root"
+    return $uid
+  fi
+}
 
 # Para comprobar si hay conectividad con el exterior
 
