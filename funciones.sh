@@ -5,6 +5,16 @@
 # Descripción: fichero de diversas funciones
 # Fecha creación: 07-03-2026
 
+rojo='\033[31m'
+verde='\033[32m'
+amarillo='\033[33m'
+azul='\033[34m'
+magenta='\033[35m'
+cian='\033[36m'
+blanco='\033[37m'
+reset='\033[0m'
+negrita='\033[1m'
+
 # Indica el uid del usuario actual de la shell.
 # Entrada: no necesita
 # Salida: muestra el uid del usuario que ejecuta el script
