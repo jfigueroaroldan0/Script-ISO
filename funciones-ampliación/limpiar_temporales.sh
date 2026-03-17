@@ -1,12 +1,22 @@
+#!/usr/bin/env bash
+# Autor: Germán C.
+# Descripción: Este script está diseñado para eliminar los ficheros de X directorio con más de Y días. Ambos parámetros se indican al empezar el script.
+# Versión: 1
+
 f_limpiar_temporales() {
 
-  find $1 -type f -mtime 0 2>/dev/null | xargs rm 
+read -e -p "Ruta del directorio: " ruta
+read -p "Edad de los ficheros en días: " dias
 
-  if [ $? -eq 0 ]; then
-    return 0
-  else
-    exit 1
-  fi
+if [ ! -d "$ruta" ]; then
+  echo "Error"
+  return 1
+
+else
+  find "$ruta" -type f -mtime +$dias -delete
+  echo "Limpieza terminada"
+  return 0
+fi
 }
 
-f_limpiar_temporales $1
+f_limpiar_temporales
