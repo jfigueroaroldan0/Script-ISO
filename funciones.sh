@@ -142,5 +142,3 @@ f_buscar_paquetes() {
     apt-file search "$cmd"
   fi
 }
-
-}
