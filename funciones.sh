@@ -129,5 +129,18 @@ f_paquete_instalado() {
 # Salida: muestra el nombre del paquete
 
 f_buscar_paquetes() {
-  dpkg -S $(which $1 2>/dev/null) 2>/dev/null | cut -d: -f1
+    local cmd="$1"
+
+  if command -v "$cmd" >/dev/null 2>&1; then
+    dpkg -S "$(command -v "$cmd")"
+
+  else
+    if ! command -v apt-file >/dev/null 2>&1; then
+      echo "Instala apt-file: sudo apt install apt-file"
+      return 1
+    fi
+    apt-file search "$cmd"
+  fi
+}
+
 }
