@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ============================================================
-# Librería de funciones de administración de sistemas
+# Librería de funciones
 # Autores:
 #   - Abraham Begines Ruiz
 #   - Jose Manuel López Hueso
